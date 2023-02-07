@@ -22,9 +22,12 @@ set ftp1 [new Application/FTP] $ftp1 attach-agent $tcp1
 $ns at 0.1 "$ftp1 start"
 $ns at 10.0 "finish"
 proc finish {} {
-global ns tf nf $ns flush-trace close $tf
+global ns tf nf 
+$ns flush-trace close $tf
 close $nf
-puts "running nam..." exec nam 1.nam & exit 0
+puts "running nam..." 
+exec nam 1.nam & 
+exit 0
 }
 
 $ns run
